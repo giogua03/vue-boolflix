@@ -1,23 +1,23 @@
 <template>
-  <div></div>
+  <div>
+    <ul v-for="objMovie in arrMovies" :key="objMovie.id">
+      <li>
+        {{objMovie.title}}
+        <br>
+        {{objMovie.original_title}}
+        {{objMovie.original_lenguage}}
+        {{objMovie.vote_everage}}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
-import CardComponents from '@/components/CardComponents.vue';
-import SearchBar from '@/components/SearchBar.vue';
+
 export default {
     name: 'PageMain',
-    components: {
-      CardComponents,
-      SearchBar,
-    },
-    data() {
-      return {
-        arrResponse: null,
-        urlApi: 'https://api.themoviedb.org/search/movie/api_key=c97c5a0688cf74d0bdab6d37a50d523c&query=searchString',
-        searchString: '', 
-      };
+    props:{
+      arrMovies: Array,
     },
 };
 </script>
