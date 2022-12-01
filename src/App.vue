@@ -1,27 +1,43 @@
 <template>
   <div id="app">
-    <PageHeader :results-for="searchString"/>
-    <PageMain @search="search"/>
+    <PageHeader @queryChange="search"/>
+    <PageMain :arr-movies='arrMovies'/>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import PageHeader from '@/components/PageHeader.vue';
 import PageMain from '@/components/PageMain.vue';
 
 export default {
+  neme:'App',
   components: {
     PageHeader,
     PageMain, 
   },
   data() {
     return {
-      searchString: '',
+      baseApiUrl: 'https://api.themoviedb.org/3',
+      apiKey:'c97c5a0688cf74d0bdab6d37a50d523c',
+      resultLenguage:'it-IT',
+      arrMovies:[],
     };
   },
   methods: {
-    search(data) {
-      this.searchString = data;
+    search(queryString) {
+      axios.get(this.baseApiUrl + '/search/movie',{
+        params:{
+          api_key: this.apiKey,
+          query: queryString,
+          lenguage: this.resultLenguage
+
+        }
+      })
+      .then((responseAxios) => {
+        this.arrMovies = responseAxios.data.results;
+        console.log(this.arrMovies)
+      });
     },
   },
 };
@@ -29,5 +45,8 @@ export default {
 </script>
 
 <style lang="scss">
-
+  *{
+    padding: 0;
+    margin: 0;
+  }
 </style>
