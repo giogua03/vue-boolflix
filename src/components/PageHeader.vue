@@ -6,7 +6,7 @@
     </div>
     <div class="serch-bar">
       <label for="query">
-        <input type="text" id="query" v-model="queryString">
+        <input type="text" id="query" class="yy" v-model="queryString">
       </label>
         
         <button>CERCA</button>
@@ -35,7 +35,22 @@ export default {
     height: 70px;
     background-color: blueviolet;
     color: orange;
+    
+  }
+  form{
     display: flex;
     justify-content: space-between;
+  }
+  .serch-bar{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+  }
+  .title{
+    margin: 1rem;
+    
+  }
+  .yy{
+    padding: 0.7rem;
   }
 </style>

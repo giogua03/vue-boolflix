@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <ul>
-      <li><img src="imgUrl" :alt="title"></li>
+      <li><img :src="imgUrl" :alt="title"></li>
       <li>{{title}}</li>
       <li>{{originalTitle}}</li>
       <li><lang-flag iso="objMovie.original_language"/></li>
@@ -37,11 +37,19 @@ export default {
   display: flex;
   gap: 2rem;
   background-color: orange;
+  margin: auto;
+
   
 }
 ul{
   list-style-type: none;
   background-color: blueviolet;
-  
+  padding: 2rem;
+  height: 500px;
+  width: 300px;
 }
+img{
+  width: 90%;
+}
+
 </style>
