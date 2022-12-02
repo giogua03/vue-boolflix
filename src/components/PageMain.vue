@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vlf">
     <h2>FILM</h2>
     <CardComp
     v-for="objMovie in arrMovies"

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul >
+  <div class="container">
+    <ul>
       <li><img src="imgUrl" :alt="title"></li>
       <li>{{title}}</li>
       <li>{{originalTitle}}</li>
@@ -31,5 +31,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.container{
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+  background-color: orange;
+  
+}
+ul{
+  list-style-type: none;
+  background-color: blueviolet;
+  
+}
 </style>
